@@ -39,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94C666322AC03C34002CB7CF /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		94C666342AC0427E002CB7CF /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
+		94C666362AC049D0002CB7CF /* FavoriteMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesView.swift; sourceTree = "<group>"; };
+		94C666382AC05759002CB7CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DE8ACAC72ABA2BCE00B9EB5A /* GB-PROJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GB-PROJ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB_PROJApp.swift; sourceTree = "<group>"; };
 		DE8ACACC2ABA2BCE00B9EB5A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +88,10 @@
 		DE8ACABE2ABA2BCE00B9EB5A = {
 			isa = PBXGroup;
 			children = (
+				94C666322AC03C34002CB7CF /* URLSession.swift */,
+				94C666342AC0427E002CB7CF /* MovieModel.swift */,
+				94C666382AC05759002CB7CF /* File.swift */,
+				94C666362AC049D0002CB7CF /* FavoriteMoviesView.swift */,
 				DE8ACAC92ABA2BCE00B9EB5A /* GB-PROJ */,
 				DE8ACADF2ABA2BCF00B9EB5A /* GB-PROJTests */,
 				DE8ACAE92ABA2BCF00B9EB5A /* GB-PROJUITests */,
@@ -304,13 +312,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C666352AC0427E002CB7CF /* MovieModel.swift in Sources */,
 				DE8ACAD42ABA2BCF00B9EB5A /* Persistence.swift in Sources */,
 				DE8ACACD2ABA2BCE00B9EB5A /* ContentView.swift in Sources */,
 				DEF2961B2AC03DB0003AC238 /* ContentViewExt.swift in Sources */,
 				DEF296172AC03CA9003AC238 /* MainPageView.swift in Sources */,
 				DEF296152AC03C95003AC238 /* MainPageViewModel.swift in Sources */,
+				94C666332AC03C34002CB7CF /* URLSession.swift in Sources */,
 				DE8ACACB2ABA2BCE00B9EB5A /* GB_PROJApp.swift in Sources */,
+				94C666392AC05759002CB7CF /* File.swift in Sources */,
 				DE8ACAD72ABA2BCF00B9EB5A /* GB_PROJ.xcdatamodeld in Sources */,
+				94C666372AC049D0002CB7CF /* FavoriteMoviesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
