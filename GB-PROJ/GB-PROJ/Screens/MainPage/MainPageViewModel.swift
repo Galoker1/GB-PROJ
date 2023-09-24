@@ -7,12 +7,32 @@
 
 import Foundation
 import Combine
-
+import SwiftUI
 class MaingPageViewModel: ObservableObject {
-    @Published var films: [Film]
+    var networkFilms: [Film] = []
+    @Published var films: [ViewFilm] = []
+    @Published var images: UIImage = UIImage()
+    private var cancellables = Set<AnyCancellable>()
+    var networkManager = NetworkManager.shared
+    init() {
+    }
     
-    init(films: [Film]) {
-        self.films = films
+    func loadData() {
+        networkManager.fetchMovie(limit: 30) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.networkFilms = data.docs ?? []
+                    self.films =  ModelsConverter.shared.convertFilm(networkModel: self.networkFilms)
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+        DispatchQueue.main.async {
+            
+        }
     }
     
 }

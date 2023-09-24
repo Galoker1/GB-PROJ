@@ -7,8 +7,8 @@
 
 import Foundation
 
-
-extension ContentView {
-    @MainActor class ViewModel: ObservableObject {
-    }
-}
+//
+//extension ContentView {
+//    @MainActor class ViewModel: ObservableObject {
+//    }
+//}
