@@ -16,6 +16,9 @@
 		DE8ACAE12ABA2BCF00B9EB5A /* GB_PROJTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8ACAE02ABA2BCF00B9EB5A /* GB_PROJTests.swift */; };
 		DE8ACAEB2ABA2BCF00B9EB5A /* GB_PROJUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8ACAEA2ABA2BCF00B9EB5A /* GB_PROJUITests.swift */; };
 		DE8ACAED2ABA2BCF00B9EB5A /* GB_PROJUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8ACAEC2ABA2BCF00B9EB5A /* GB_PROJUITestsLaunchTests.swift */; };
+		DEF296152AC03C95003AC238 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF296142AC03C95003AC238 /* MainPageViewModel.swift */; };
+		DEF296172AC03CA9003AC238 /* MainPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF296162AC03CA9003AC238 /* MainPageView.swift */; };
+		DEF2961B2AC03DB0003AC238 /* ContentViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2961A2AC03DB0003AC238 /* ContentViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		DE8ACAE62ABA2BCF00B9EB5A /* GB-PROJUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GB-PROJUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8ACAEA2ABA2BCF00B9EB5A /* GB_PROJUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB_PROJUITests.swift; sourceTree = "<group>"; };
 		DE8ACAEC2ABA2BCF00B9EB5A /* GB_PROJUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB_PROJUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DEF296142AC03C95003AC238 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		DEF296162AC03CA9003AC238 /* MainPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageView.swift; sourceTree = "<group>"; };
+		DEF2961A2AC03DB0003AC238 /* ContentViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,8 @@
 		DE8ACAC92ABA2BCE00B9EB5A /* GB-PROJ */ = {
 			isa = PBXGroup;
 			children = (
+				DEF296182AC03D84003AC238 /* Helpers */,
+				DEF296122AC03C68003AC238 /* Screens */,
 				DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */,
 				DE8ACACC2ABA2BCE00B9EB5A /* ContentView.swift */,
 				DE8ACACE2ABA2BCF00B9EB5A /* Assets.xcassets */,
@@ -131,6 +139,39 @@
 				DE8ACAEC2ABA2BCF00B9EB5A /* GB_PROJUITestsLaunchTests.swift */,
 			);
 			path = "GB-PROJUITests";
+			sourceTree = "<group>";
+		};
+		DEF296122AC03C68003AC238 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DEF296132AC03C75003AC238 /* MainPage */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DEF296132AC03C75003AC238 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				DEF296142AC03C95003AC238 /* MainPageViewModel.swift */,
+				DEF296162AC03CA9003AC238 /* MainPageView.swift */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		DEF296182AC03D84003AC238 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DEF296192AC03D93003AC238 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DEF296192AC03D93003AC238 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DEF2961A2AC03DB0003AC238 /* ContentViewExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +306,9 @@
 			files = (
 				DE8ACAD42ABA2BCF00B9EB5A /* Persistence.swift in Sources */,
 				DE8ACACD2ABA2BCE00B9EB5A /* ContentView.swift in Sources */,
+				DEF2961B2AC03DB0003AC238 /* ContentViewExt.swift in Sources */,
+				DEF296172AC03CA9003AC238 /* MainPageView.swift in Sources */,
+				DEF296152AC03C95003AC238 /* MainPageViewModel.swift in Sources */,
 				DE8ACACB2ABA2BCE00B9EB5A /* GB_PROJApp.swift in Sources */,
 				DE8ACAD72ABA2BCF00B9EB5A /* GB_PROJ.xcdatamodeld in Sources */,
 			);
