@@ -8,14 +8,15 @@
 import Foundation
 import Combine
 import SwiftUI
-class MaingPageViewModel: ObservableObject {
+
+class MainPageViewModel: ObservableObject {
     var networkFilms: [Film] = []
     @Published var films: [ViewFilm] = []
     @Published var images: UIImage = UIImage()
     private var cancellables = Set<AnyCancellable>()
     var networkManager = NetworkManager.shared
-    init() {
-    }
+    
+    init() { }
     
     func loadData() {
         networkManager.fetchMovie(limit: 30) { result in

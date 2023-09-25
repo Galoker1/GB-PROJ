@@ -1,22 +1,20 @@
 //
-//  MainPageView.swift
+//  PersonCatalogView.swift
 //  GB-PROJ
 //
-//  Created by Егор  Хлямов on 24.09.2023.
+//  Created by Alex Mak on 25/09/2023.
 //
 
 import SwiftUI
 
-struct MainPageView: View {
+struct PersonCatalogView: View {
     @StateObject private var viewModel = MainPageViewModel()
     
     var body: some View {
         VStack {
-            CustomDisplayTextLabel(textLabel: TabBarProperties.moviesCatalog.tabBarTitle,
-                                   color: Color.Primary.num1,
-                                   style: .T1DisplaySemibold)
+            CustomDisplayTextLabel(textLabel: TabBarProperties.personCatalog.tabBarTitle, color: Color.Primary.num1, style: .T1DisplaySemibold)
             
-//            Text(String(viewModel.films.count))
+            //TODO: - сдела заглушки, как будут отделены фильмы от сериалов, нужно будет запихнуть данные сюда
             List {
                 ForEach(viewModel.films, id: \.self) { movie in
                     HStack {
@@ -31,10 +29,5 @@ struct MainPageView: View {
             }
         }
         .background(Color.Neutral.num3)
-        
-        .onAppear {
-            viewModel.loadData()
-        }
-        
     }
 }
