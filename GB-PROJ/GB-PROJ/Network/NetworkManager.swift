@@ -18,7 +18,7 @@ class NetworkManager {
     }
     func fetchMovie(limit: Int, completion: @escaping CompletionHandler){
         
-        let apiKey = "JA8F3QZ-301MWVM-GVP9D91-7B1ZWSQ"
+        let apiKey = "5FHVVKT-0DAMRVZ-KPQCZYP-HZBFTY8"
         let urlStr = "https://api.kinopoisk.dev/v1.3/movie"
         
         guard let url = URL(string: urlStr) else {
