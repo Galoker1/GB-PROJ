@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 import Combine
 
+struct ViewFilmViewModel {
+    let name: String
+    let poster: UIImage?
+}
 class ViewFilm: Identifiable, Hashable, ObservableObject{
     
     let id = UUID()

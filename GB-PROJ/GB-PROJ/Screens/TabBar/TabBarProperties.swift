@@ -15,21 +15,21 @@ enum TabBarProperties: String, CaseIterable {
     var tabImage: String {
         switch self {
         case .moviesCatalog:
-            "film"
+            return "film"
         case .seriesCatalog:
-            "film.stack"
+            return "film.stack"
         case .personCatalog:
-            "person"
+            return "person"
         }
     }
     var tabBarTitle: String {
         switch self {
         case .moviesCatalog:
-            "Каталог фильмов"
+            return "Каталог фильмов"
         case .seriesCatalog:
-            "Каталог сериалов"
+            return "Каталог сериалов"
         case .personCatalog:
-            "Персональный каталог"
+            return "Персональный каталог"
         }
     }
 }
