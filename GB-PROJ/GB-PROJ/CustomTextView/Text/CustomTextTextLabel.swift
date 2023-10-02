@@ -25,10 +25,15 @@ struct CustomTextTextLabel: View {
     }
 }
 
-struct CustomTextTextLabel_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomTextTextLabel(textLabel: "This is a custom text label.", style: .T1TextSemibold)
-            .padding()
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct CustomTextTextLabel_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VStack {
+//            CustomTextTextLabel(textLabel: "This is a custom text label.", style: .T1TextSemibold)
+////            CustomTextTextLabel(textLabel: "This is a custom text label.", style: .T2TextRegular)
+////            CustomTextTextLabel(textLabel: "This is a custom text label.", style: .T3TextSemibold)
+////            CustomTextTextLabel(textLabel: "This is a custom text label.", style: .T4TextRegular)
+//        }
+//            .padding()
+//            .previewLayout(.sizeThatFits)
+//    }
+//}

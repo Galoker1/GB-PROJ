@@ -11,7 +11,8 @@ import SwiftUI
 struct GB_PROJApp: App {
     var body: some Scene {
         WindowGroup {
-            MainPageView()
+//            MainPageView()
+            DescriptionMovieView()
         }
     }
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0027BC412ACAE0AE00BF80AA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027BC402ACAE0AE00BF80AA /* GradientView.swift */; };
+		0027BC432ACAE27200BF80AA /* DescriptionAndRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027BC422ACAE27200BF80AA /* DescriptionAndRatingView.swift */; };
+		0027BC452ACAEBF800BF80AA /* WideSaveShareButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027BC442ACAEBF800BF80AA /* WideSaveShareButtonsView.swift */; };
+		0027BC472ACAF1F300BF80AA /* WideCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027BC462ACAF1F300BF80AA /* WideCustomButton.swift */; };
+		003F697A2ACAC9AB00CE537A /* DescriptionMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003F69792ACAC9AB00CE537A /* DescriptionMovieView.swift */; };
+		009A248A2ACB12960049F6CA /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009A24892ACB12960049F6CA /* ShareSheet.swift */; };
 		00C98F622AC1854D00D0436E /* LogoAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98F612AC1854D00D0436E /* LogoAnimationView.swift */; };
 		00C98F642AC1858500D0436E /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98F632AC1858500D0436E /* LineShape.swift */; };
 		00C98F662AC185D300D0436E /* LogoElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C98F652AC185D300D0436E /* LogoElementView.swift */; };
@@ -62,6 +68,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0027BC402ACAE0AE00BF80AA /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0027BC422ACAE27200BF80AA /* DescriptionAndRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionAndRatingView.swift; sourceTree = "<group>"; };
+		0027BC442ACAEBF800BF80AA /* WideSaveShareButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideSaveShareButtonsView.swift; sourceTree = "<group>"; };
+		0027BC462ACAF1F300BF80AA /* WideCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideCustomButton.swift; sourceTree = "<group>"; };
+		003F69792ACAC9AB00CE537A /* DescriptionMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionMovieView.swift; sourceTree = "<group>"; };
+		009A24892ACB12960049F6CA /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		00C98F612AC1854D00D0436E /* LogoAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoAnimationView.swift; sourceTree = "<group>"; };
 		00C98F632AC1858500D0436E /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		00C98F652AC185D300D0436E /* LogoElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoElementView.swift; sourceTree = "<group>"; };
@@ -131,6 +143,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0027BC3F2ACAE07C00BF80AA /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				00C98F922AC1AA7B00D0436E /* CustomTabBar.swift */,
+				0027BC402ACAE0AE00BF80AA /* GradientView.swift */,
+				0027BC422ACAE27200BF80AA /* DescriptionAndRatingView.swift */,
+				0027BC442ACAEBF800BF80AA /* WideSaveShareButtonsView.swift */,
+				0027BC462ACAF1F300BF80AA /* WideCustomButton.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		003F69782ACAC97600CE537A /* DescriptionMovie */ = {
+			isa = PBXGroup;
+			children = (
+				003F69792ACAC9AB00CE537A /* DescriptionMovieView.swift */,
+			);
+			path = DescriptionMovie;
+			sourceTree = "<group>";
+		};
 		00C98F602AC1853F00D0436E /* Logo */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +220,6 @@
 			children = (
 				00C98F942AC1AEDD00D0436E /* TabBarProperties.swift */,
 				00C98F902AC1AA6D00D0436E /* TabBarView.swift */,
-				00C98F922AC1AA7B00D0436E /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -238,6 +269,7 @@
 				DEF296122AC03C68003AC238 /* Screens */,
 				DEF296182AC03D84003AC238 /* Helpers */,
 				00C98F7A2AC19C7D00D0436E /* CustomTextView */,
+				0027BC3F2ACAE07C00BF80AA /* CustomView */,
 				DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */,
 				DE8ACACE2ABA2BCF00B9EB5A /* Assets.xcassets */,
 				DE8ACAD52ABA2BCF00B9EB5A /* GB_PROJ.xcdatamodeld */,
@@ -282,6 +314,7 @@
 		DEF296122AC03C68003AC238 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				003F69782ACAC97600CE537A /* DescriptionMovie */,
 				00C98F8F2AC1A8ED00D0436E /* TabBar */,
 				00C98F602AC1853F00D0436E /* Logo */,
 				DEAF28532AC0DEBC00603019 /* Models */,
@@ -307,6 +340,7 @@
 				00C98F782AC19A7100D0436E /* Fonts */,
 				DEF296192AC03D93003AC238 /* Extensions */,
 				DEAF28542AC0DF0500603019 /* ModelsConverter.swift */,
+				009A24892ACB12960049F6CA /* ShareSheet.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -404,7 +438,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					DE8ACAC62ABA2BCE00B9EB5A = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -477,6 +511,7 @@
 			files = (
 				DEAF28572AC0DF7D00603019 /* ViewFilm.swift in Sources */,
 				DEAF28522AC0B29900603019 /* Movie.swift in Sources */,
+				009A248A2ACB12960049F6CA /* ShareSheet.swift in Sources */,
 				00C98F6A2AC18E1400D0436E /* Font.swift in Sources */,
 				00C98F8A2AC1A31000D0436E /* TextStyleDisplayProperties.swift in Sources */,
 				00C98F662AC185D300D0436E /* LogoElementView.swift in Sources */,
@@ -485,7 +520,9 @@
 				00C98F622AC1854D00D0436E /* LogoAnimationView.swift in Sources */,
 				00C98F802AC1A02C00D0436E /* LogoBodyLabel.swift in Sources */,
 				00C98F8C2AC1A34700D0436E /* CustomTextTextLabel.swift in Sources */,
+				0027BC412ACAE0AE00BF80AA /* GradientView.swift in Sources */,
 				00C98F8E2AC1A37100D0436E /* TextStyleTextProperties.swift in Sources */,
+				0027BC432ACAE27200BF80AA /* DescriptionAndRatingView.swift in Sources */,
 				DEF2961B2AC03DB0003AC238 /* ContentViewExt.swift in Sources */,
 				DEF296172AC03CA9003AC238 /* MainPageView.swift in Sources */,
 				00C98F642AC1858500D0436E /* LineShape.swift in Sources */,
@@ -494,8 +531,11 @@
 				DEAF28502AC0B26900603019 /* NetworkManager.swift in Sources */,
 				00C98F912AC1AA6D00D0436E /* TabBarView.swift in Sources */,
 				00C98F9B2AC1DDF200D0436E /* PersonCatalogView.swift in Sources */,
+				0027BC452ACAEBF800BF80AA /* WideSaveShareButtonsView.swift in Sources */,
 				DEF296152AC03C95003AC238 /* MainPageViewModel.swift in Sources */,
+				003F697A2ACAC9AB00CE537A /* DescriptionMovieView.swift in Sources */,
 				00C98F992AC1DDA600D0436E /* SeriesCatalogView.swift in Sources */,
+				0027BC472ACAF1F300BF80AA /* WideCustomButton.swift in Sources */,
 				DE8ACACB2ABA2BCE00B9EB5A /* GB_PROJApp.swift in Sources */,
 				00C98F932AC1AA7B00D0436E /* CustomTabBar.swift in Sources */,
 				DEAF28552AC0DF0500603019 /* ModelsConverter.swift in Sources */,
@@ -572,6 +612,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -586,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -632,6 +673,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -640,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

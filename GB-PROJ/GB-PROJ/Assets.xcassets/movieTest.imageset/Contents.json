@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "Снимок экрана 2023-10-02 в 5.21.30 PM.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

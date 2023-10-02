@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//FIXME: - этот класс где -то используется?
+
 struct FavoriteMoviesView: View {
     @StateObject private var viewModel = MovieViewModel()
     var body: some View {
