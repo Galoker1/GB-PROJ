@@ -2,7 +2,7 @@
 //  DescriptionAndRatingView.swift
 //  GB-PROJ
 //
-//  Created by aaa on 02/10/2023.
+//  Created by Alex Mak on 02/10/2023.
 //
 
 import SwiftUI
