@@ -16,28 +16,28 @@ extension Font {
     static func T2DisplayRegular() -> Font {
         Font.custom("SF-Pro-Display-Regular", size: 24)
     }
-    static func T3DisplaySemibold() -> Font {
-        Font.custom("SF-Pro-Display-Semibold", size: 17)
+    static func T3DisplayRegular() -> Font {
+        Font.custom("SF-Pro-Display-Regular", size: 16)
     }
-    static func T4DisplayRegular() -> Font {
-        Font.custom("SF-Pro-Display-Regular", size: 13)
+    static func T4DisplaySemibold() -> Font {
+        Font.custom("SF-Pro-Display-Semibold", size: 13)
     }
     
     static func LogoBody() -> Font {
         Font.custom("GlacialIndifference-Regular", size: 15)
     }
     
-    static func T1TextSemibold() -> Font {
+    static func T1TextRegular() -> Font {
         Font.custom("SF-Pro-Text-Regular", size: 28)
     }
-    static func T2TextRegular() -> Font {
+    static func T2TextSemibold() -> Font {
         Font.custom("SF-Pro-Text-Semibold", size: 24)
     }
     static func T3TextSemibold() -> Font {
-        Font.custom("SF-Pro-Text-Regular", size: 17)
+        Font.custom("SF-Pro-Text-Semibold", size: 17)
     }
     static func T4TextRegular() -> Font {
-        Font.custom("SF-Pro-Text-Semibold", size: 13)
+        Font.custom("SF-Pro-Text-Regular", size: 13)
     }
 
 }

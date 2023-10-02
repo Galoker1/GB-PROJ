@@ -27,7 +27,12 @@ struct CustomDisplayTextLabel: View {
 
 struct CustomDisplayTextLabel_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDisplayTextLabel(textLabel: "This is a custom text label.", style: .T1DisplaySemibold)
+        VStack {
+            CustomDisplayTextLabel(textLabel: "This is a custom text label.", style: .T1DisplaySemibold)
+//            CustomDisplayTextLabel(textLabel: "This is a custom text label.", style: .T2DisplayRegular)
+//            CustomDisplayTextLabel(textLabel: "This is a custom text label.", style: .T3DisplaySemibold)
+//            CustomDisplayTextLabel(textLabel: "This is a custom text label.", style: .T4DisplayRegular)
+        }
             .padding()
             .previewLayout(.sizeThatFits)
     }
