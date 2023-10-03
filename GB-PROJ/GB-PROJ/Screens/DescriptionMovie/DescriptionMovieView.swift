@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DescriptionMovieView: View {
     //TODO: - сделать имена фильмов с заглавных, так смотриться эстетичнее, заменить все строковые на замапоенные обьекты
+    let viewFilm: ViewFilm
     var titleFilm: String = "ГИПНОТИК"
     var rating: String =  "4"
     var releaseYear: String = "2016"
@@ -23,7 +24,7 @@ struct DescriptionMovieView: View {
         ScrollView {
             VStack {
                 ZStack {
-                    Image("movieTest")
+                    Image(uiImage: viewFilm.poster ?? UIImage())
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 500)
@@ -32,13 +33,13 @@ struct DescriptionMovieView: View {
                         .padding(.bottom, -300)
                 }
                 Spacer()
-                CustomDisplayTextLabel(textLabel: titleFilm,
+                CustomDisplayTextLabel(textLabel: viewFilm.name,
                                        color: .white,
                                        style: .T1DisplaySemibold)
-                .padding(.leading, -180)
+                //.padding(.leading, 10)
                 Divider()
  
-                InfoAndRatingView(rating: rating, releaseYear: releaseYear, genre: genre, shortDiscription: shortDiscription)
+                InfoAndRatingView(rating: String(viewFilm.imdbEating), releaseYear: String(viewFilm.year), genre: viewFilm.genres, shortDiscription: viewFilm.description)
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
                 
@@ -46,13 +47,13 @@ struct DescriptionMovieView: View {
                     .padding(.horizontal, 16)
                  
                   
-                InfoMovieView(releaseYear: releaseYear,
+                InfoMovieView(releaseYear: String(viewFilm.year),
                               ageLimit: ageLimit,
-                              genre: genre,
-                              discription: discription,
-                              country: country,
+                              genre: viewFilm.genres,
+                              discription: viewFilm.description,
+                              country: viewFilm.countries,
                               language: language,
-                              duration: duration)
+                              duration: String(viewFilm.movieLength))
                 .padding(.horizontal, 16)
             }
         }
@@ -61,8 +62,8 @@ struct DescriptionMovieView: View {
     }
 }
 
-struct DescriptionMovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        DescriptionMovieView()
-    }
-}
+//struct DescriptionMovieView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DescriptionMovieView()
+//    }
+//}

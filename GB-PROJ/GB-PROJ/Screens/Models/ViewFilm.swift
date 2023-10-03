@@ -23,15 +23,31 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
     let name: String
     let description: String
     let year: Int
+    let genres: String
+    let countries: String
+    let movieLength: Int
     @Published var poster: UIImage?
     
-    init(kpRating: Double, imdbEating: Double, criticsRating: Double, name: String, description: String, year: Int, photoUrl: String){
+    init(kpRating: Double,
+         imdbEating: Double,
+         criticsRating: Double,
+         name: String,
+         description: String,
+         year: Int,
+         photoUrl: String,
+         countries: [Country],
+         genres: [Genre],
+         movieLength: Int?)
+    {
         self.kpRating = kpRating
         self.imdbEating = imdbEating
         self.criticsRating = criticsRating
         self.name = name
         self.description = description
         self.year = year
+        self.genres = genres.map { $0.name }.joined(separator: ", ")
+        self.countries = countries.map { $0.name }.joined(separator: ", ")
+        self.movieLength = movieLength ?? 0
         loadPhoto(url: photoUrl)
     }
     func loadPhoto(url: String) {

@@ -33,10 +33,10 @@ struct InfoAndRatingView: View {
                                        color: .white,
                                        style: .T3DisplayRegular)
             }
-            CustomDisplayTextLabel(textLabel: shortDiscription,
-                                   color: (Color.white.opacity(0.7)),
-                                   style: .T4DisplaySemibold)
-                .lineLimit(5)
+//            CustomDisplayTextLabel(textLabel: shortDiscription,
+//                                   color: (Color.white.opacity(0.7)),
+//                                   style: .T4DisplaySemibold)
+//                .lineLimit(5)
         }
         Divider()
             .background(.white)

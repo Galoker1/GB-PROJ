@@ -19,7 +19,18 @@ struct Film: Codable, Hashable{
     let name: String
     let description: String
     let year: Int
+    let movieLength: Int?
     let poster: Poster
+    let genres: [Genre]
+    let countries: [Country]
+}
+
+struct Genre: Codable, Hashable {
+    let name: String
+}
+
+struct Country: Codable, Hashable {
+    let name: String
 }
 
 struct Rating: Codable, Hashable{

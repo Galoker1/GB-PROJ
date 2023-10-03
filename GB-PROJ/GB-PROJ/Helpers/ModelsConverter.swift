@@ -20,7 +20,10 @@ class ModelsConverter {
                                    name: film.name,
                                    description: film.description,
                                    year: film.year,
-                                   photoUrl: film.poster.url))
+                                   photoUrl: film.poster.url,
+                                   countries: film.countries,
+                                   genres: film.genres,
+                                   movieLength: film.movieLength))
         }
         return result
     }
