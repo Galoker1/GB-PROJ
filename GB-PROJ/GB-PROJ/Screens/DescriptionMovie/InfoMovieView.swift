@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct InfoMovieView: View {
-//    @State var rating: String
     @State var releaseYear: String
     @State var ageLimit: String
     @State var genre: String
