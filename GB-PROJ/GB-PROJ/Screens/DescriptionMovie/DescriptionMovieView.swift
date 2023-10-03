@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct DescriptionMovieView: View {
-    //TODO: - сделать имена фильмов с заглавных, так смотриться эстетичнее
+    //TODO: - сделать имена фильмов с заглавных, так смотриться эстетичнее, заменить все строковые на замапоенные обьекты
     var titleFilm: String = "ГИПНОТИК"
     var rating: String =  "4"
-    var age: String = "2016"
+    var releaseYear: String = "2016"
     var genre: String = "Драма"
+    var ageLimit: String = "18+"
     var shortDiscription: String = "История жизни Рэя Крока, человека создавшего самую известную в мире сеть ресторанов быстрого обслуживания"
-//    var : String
-//    var : String
+    var discription: String = "Всю свою жизнь Рэй Крок (Майкл Китон) был неудачником. Он перепробовал множество занятий: был пианистом в джазовом ансамбле, агентом по продаже недвижимости и вот теперь продаёт миксе..."
+    var country: String = "США, Греция"
+    var language: String = "Английский, русский"
+    var duration: String = "160"
     var body: some View {
         ScrollView {
             VStack {
@@ -35,12 +38,22 @@ struct DescriptionMovieView: View {
                 .padding(.leading, -180)
                 Divider()
  
-                DescriptionAndRatingView(rating: rating, age: age, genre: genre, shortDiscription: shortDiscription)
+                InfoAndRatingView(rating: rating, releaseYear: releaseYear, genre: genre, shortDiscription: shortDiscription)
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
                 
                 WideSaveShareButtonsView(titleFilm: titleFilm, appLink: "Ссылка на фильм")
                     .padding(.horizontal, 16)
+                 
+                  
+                InfoMovieView(releaseYear: releaseYear,
+                              ageLimit: ageLimit,
+                              genre: genre,
+                              discription: discription,
+                              country: country,
+                              language: language,
+                              duration: duration)
+                .padding(.horizontal, 16)
             }
         }
         .ignoresSafeArea(.all, edges: .top)

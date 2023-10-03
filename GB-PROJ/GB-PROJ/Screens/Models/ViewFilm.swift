@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
-class ViewFilm: Identifiable, Hashable, ObservableObject{
+class ViewFilm: Identifiable, Hashable, ObservableObject {
     
     let id = UUID()
     let kpRating: Double
