@@ -12,7 +12,7 @@ struct GB_PROJApp: App {
     var body: some Scene {
         WindowGroup {
 
-            DescriptionMovieView()
+            TabBarView()
 
         }
     }
