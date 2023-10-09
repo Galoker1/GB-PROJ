@@ -24,7 +24,7 @@ struct MainPageView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(viewModel.films, id: \.self) { movie in
-                            VStack(alignment: .leading){
+                            LazyVStack(alignment: .leading){
                                 Button() {
                                     selectedMovie = movie
                                     isSecondViewActive = true
