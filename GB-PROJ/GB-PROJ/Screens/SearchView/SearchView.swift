@@ -8,44 +8,68 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var selectedGenres: [String] = []
-    @State private var selectedCountry: [String] = []
-    @State private var selectedYears: [String] = []
-
+    @State private var selectedGenres: Set<String> = []
+    @State private var selectedCountry: Set<String> = []
+    @State private var selectedYears: Set<String> = []
+    @State var nameMovie: String = ""
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-
-            CustomTextTextLabel(textLabel: "Жанр",
-                                color: .white,
-                                style: .T2TextSemibold)
-            .padding(.horizontal, 8)
-
-            CustomPickerView(placeholder: "Любой жанр", selectedProperties: $selectedGenres, enumCases: ChoseGenre.allCases)
-            Spacer().frame(height: 6)
-
-            CustomTextTextLabel(textLabel: "Страна",
-                                color: .white,
-                                style: .T2TextSemibold)
-            .padding(.horizontal, 8)
-
-            CustomPickerView(placeholder: "Любая страна", selectedProperties: $selectedCountry, enumCases: ChoseCountry.allCases)
-            Spacer().frame(height: 6)
-
-            CustomTextTextLabel(textLabel: "Год",
-                                color: .white,
-                                style: .T2TextSemibold)
-            .padding(.horizontal, 8)
-
-            CustomPickerView(placeholder: "Любой год", selectedProperties: $selectedYears, enumCases: ChoseYears.allCases)
-            Spacer().frame(height: 20)
-            WideBlueButton(buttonText: "Поиск") {
-                performSearch()
+        ScrollView {
+            
+            VStack(alignment: .leading, spacing: 4) {
+                CustomTextTextLabel(textLabel: "Название",
+                                    color: .white,
+                                    style: .T2TextSemibold)
+                .padding(.horizontal, 8)
+                
+                TextField("", text: $nameMovie)
+                    .font(Font.T3DisplayRegular())
+                    .overlay(
+                        Text(!nameMovie.isEmpty ? "": "Любое название")
+                            .opacity(0.5)
+                            .padding(.trailing, UIScreen.main.bounds.width/1.78)
+                    )
+                    .foregroundColor(Color.Neutral.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 40)
+                    .padding(.horizontal, 6)
+                    .font(Font.T3DisplayRegular())
+                    .background(Color.Neutral.num1)
+                    .cornerRadius(12)
+                
+                Spacer().frame(height: 6)
+                CustomTextTextLabel(textLabel: "Жанр",
+                                    color: .white,
+                                    style: .T2TextSemibold)
+                .padding(.horizontal, 8)
+                
+                CustomPickerView(placeholder: "Любой жанр", selectedProperties: $selectedGenres, enumCases: ChoseGenre.allCases)
+                Spacer().frame(height: 6)
+                
+                CustomTextTextLabel(textLabel: "Страна",
+                                    color: .white,
+                                    style: .T2TextSemibold)
+                .padding(.horizontal, 8)
+                
+                CustomPickerView(placeholder: "Любая страна", selectedProperties: $selectedCountry, enumCases: ChoseCountry.allCases)
+                Spacer().frame(height: 6)
+                
+                CustomTextTextLabel(textLabel: "Год",
+                                    color: .white,
+                                    style: .T2TextSemibold)
+                .padding(.horizontal, 8)
+                
+                CustomPickerView(placeholder: "Любой год", selectedProperties: $selectedYears, enumCases: ChoseYears.allCases)
+                Spacer().frame(height: 20)
+                WideBlueButton(buttonText: "Поиск") {
+                    performSearch()
+                }
             }
+            .padding(.all, 16)
+            .background(Color.Neutral.num3)
         }
-        .padding(.all, 16)
-        .background(Color.Neutral.num3)
     }
-
+    
     private func performSearch() {
         //выполнить поиск на основе выбранных свойств selectedGenres, selectedYears и selectedRatings
     }
@@ -58,46 +82,4 @@ struct SearchView_Previews: PreviewProvider {
         SearchView()
     }
 }
-//struct SearchView: View {
-//    @State private var selectedGenres: [String] = []
-//    @State private var selectedYears: [String] = []
-//    @State private var selectedRatings: [String] = []
-//    
-//    var body: some View {
-//        VStack(alignment: .leading, spacing: 4) {
-//            
-//            CustomTextTextLabel(textLabel: "Жанр",
-//                                color: .white,
-//                                style: .T2TextSemibold)
-//            .padding(.horizontal, 8)
-//            
-//            CustomPickerView(placeholder: "Любой жанр", selectedProperties: $selectedGenres)
-//            Spacer().frame(height: 6)
-//            
-//            CustomTextTextLabel(textLabel: "Страна",
-//                                color: .white,
-//                                style: .T2TextSemibold)
-//            .padding(.horizontal, 8)
-//            
-//            CustomPickerView(placeholder: "Любая страна", selectedProperties: $selectedYears)
-//            Spacer().frame(height: 6)
-//            
-//            CustomTextTextLabel(textLabel: "Год",
-//                                color: .white,
-//                                style: .T2TextSemibold)
-//            .padding(.horizontal, 8)
-//            
-//            CustomPickerView(placeholder: "Любой год", selectedProperties: $selectedRatings)
-//            Spacer().frame(height: 20)
-//            WideBlueButton(buttonText: "Поиск") {
-//                performSearch()
-//            }
-//        }
-//        .padding(.all, 16)
-//        .background(Color.Neutral.num3)
-//    }
-//    
-//    private func performSearch() {
-//        //выполнить поиск на основе выбранных свойств selectedGenres, selectedYears и selectedRatings
-//    }
-//}
+

@@ -11,8 +11,8 @@ import SwiftUI
 struct GB_PROJApp: App {
     var body: some Scene {
         WindowGroup {
-
-            TabBarView()
+LogoAnimationView()
+//            TabBarView()
 
         }
     }
