@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DescriptionMovieView: View {
-    //TODO: - сделать имена фильмов с заглавных, так смотриться эстетичнее, заменить все строковые на замапоенные обьекты
     let viewFilm: ViewFilm
     var titleFilm: String = "ГИПНОТИК"
     var rating: String =  "4"

@@ -21,7 +21,7 @@ struct CustomTabBar: View {
                 Spacer()
                 Image(systemName: selectedTab == tab ? fillImage : tab.tabImage)
                     .font(.system(size: 25))
-                    .scaleEffect( tab == selectedTab ? 1.7 : 1.2 )
+                    .scaleEffect( tab == selectedTab ? 1.2 : 0.8 )
                     .foregroundColor(selectedTab == tab ? Color.Primary.num1 : Color.Primary.num1)
                     .onTapGesture {
                         withAnimation(.easeIn(duration: 0.1)) {

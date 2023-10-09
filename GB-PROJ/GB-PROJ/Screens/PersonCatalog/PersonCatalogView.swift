@@ -12,7 +12,8 @@ struct PersonCatalogView: View {
     
     var body: some View {
         VStack {
-            CustomDisplayTextLabel(textLabel: TabBarProperties.personCatalog.tabBarTitle, color: Color.Primary.num1, style: .T1DisplaySemibold)
+            CustomHeaderView(textLabel: TabBarProperties.personCatalog.tabBarTitle)
+                .padding(.horizontal, 16)
             
             //TODO: - сдела заглушки, как будут отделены фильмы от сериалов, нужно будет запихнуть данные сюда
             List {
