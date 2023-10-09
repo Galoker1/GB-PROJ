@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchView: View {
     @State private var selectedGenres: Set<String> = []
@@ -44,7 +45,7 @@ struct SearchView: View {
                 .padding(.horizontal, 8)
                 
                 CustomPickerView(placeholder: "Любой жанр", selectedProperties: $selectedGenres, enumCases: ChoseGenre.allCases)
-                Spacer().frame(height: 6)
+                    .padding(.bottom, 6)
                 
                 CustomTextTextLabel(textLabel: "Страна",
                                     color: .white,
@@ -52,7 +53,7 @@ struct SearchView: View {
                 .padding(.horizontal, 8)
                 
                 CustomPickerView(placeholder: "Любая страна", selectedProperties: $selectedCountry, enumCases: ChoseCountry.allCases)
-                Spacer().frame(height: 6)
+                    .padding(.bottom, 6)
                 
                 CustomTextTextLabel(textLabel: "Год",
                                     color: .white,
@@ -60,7 +61,7 @@ struct SearchView: View {
                 .padding(.horizontal, 8)
                 
                 CustomPickerView(placeholder: "Любой год", selectedProperties: $selectedYears, enumCases: ChoseYears.allCases)
-                Spacer().frame(height: 20)
+                    .padding(.bottom, 20)
                 WideBlueButton(buttonText: "Поиск") {
                     performSearch()
                 }

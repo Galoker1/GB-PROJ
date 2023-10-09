@@ -26,7 +26,7 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
     let genres: String
     let countries: String
     let movieLength: Int
-    @Published var poster: UIImage?
+    let poster: UIImage
     
     init(kpRating: Double,
          imdbEating: Double,
@@ -34,7 +34,7 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
          name: String,
          description: String,
          year: Int,
-         photoUrl: String,
+         poster: UIImage,
          countries: [Country],
          genres: [Genre],
          movieLength: Int?)
@@ -48,18 +48,7 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
         self.genres = genres.map { $0.name }.joined(separator: ", ")
         self.countries = countries.map { $0.name }.joined(separator: ", ")
         self.movieLength = movieLength ?? 0
-        loadPhoto(url: photoUrl)
-    }
-    func loadPhoto(url: String) {
-            NetworkManager.shared.loadImageFromURL(url) { image in
-                if let image = image {
-                    self.poster = image
-                }
-                else {
-                    self.poster = UIImage(named: "square.and.arrow.up")
-                }
-            }
-    
+        self.poster = poster
     }
     
     func hash(into hasher: inout Hasher) {
