@@ -13,7 +13,7 @@ struct MainPageView: View {
     @State private var isStyled = true
     @State var selectedMovie: ViewFilm? = nil
     let columns = [
-        GridItem(.flexible(), spacing: 16), // Две карточки в строке с промежутком 16 точек
+        GridItem(.flexible(), spacing: 16), 
         GridItem(.flexible(), spacing: 16)
     ]
     

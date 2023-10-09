@@ -29,8 +29,8 @@ struct CustomHeaderView: View {
         .sheet(isPresented: $isSearchViewVisible) {
             SearchView()
                 .frame(maxHeight: .infinity)
-                .background(Color.Neutral.num3)
-                .presentationDetents([.medium, .large])
+                .background(Color.Neutral.num2)
+                .presentationDetents([.medium])
               
         }
     }
