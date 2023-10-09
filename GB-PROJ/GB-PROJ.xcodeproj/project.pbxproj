@@ -117,7 +117,6 @@
 		85F532AC2AD2F8EA00298501 /* ChoseGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoseGenre.swift; sourceTree = "<group>"; };
 		85F532AE2AD4100600298501 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		94C666342AC0427E002CB7CF /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		94C666362AC049D0002CB7CF /* FavoriteMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesView.swift; sourceTree = "<group>"; };
 		94C666382AC05759002CB7CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DE8ACAC72ABA2BCE00B9EB5A /* GB-PROJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GB-PROJ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB_PROJApp.swift; sourceTree = "<group>"; };
@@ -280,7 +279,6 @@
 		DE8ACABE2ABA2BCE00B9EB5A = {
 			isa = PBXGroup;
 			children = (
-				94C666362AC049D0002CB7CF /* FavoriteMoviesView.swift */,
 				DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */,
 				DE8ACAC92ABA2BCE00B9EB5A /* GB-PROJ */,
 				DE8ACADF2ABA2BCF00B9EB5A /* GB-PROJTests */,
@@ -748,6 +746,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GB-PROJ/Preview Content\"";
+				DEVELOPMENT_TEAM = CQKW5SV7PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GB-PROJ/Info.plist";
@@ -777,6 +776,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"GB-PROJ/Preview Content\"";
+				DEVELOPMENT_TEAM = CQKW5SV7PX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GB-PROJ/Info.plist";

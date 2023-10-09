@@ -12,6 +12,7 @@ import SwiftUI
 class MainPageViewModel: ObservableObject {
     var networkFilms: [Film] = []
     @Published var films: [ViewFilm] = []
+    @Published var filteredFilms: [ViewFilm] = []
     @Published var images: UIImage = UIImage()
     private var cancellables = Set<AnyCancellable>()
     var networkManager = NetworkManager.shared
@@ -19,7 +20,7 @@ class MainPageViewModel: ObservableObject {
     init() { }
     
     func loadData() {
-        networkManager.fetchMovie(limit: 30) { result in
+        networkManager.fetchMovie(name: "", limit: 30) { result in
             switch result {
             case .success(let data):
                 DispatchQueue.main.async {

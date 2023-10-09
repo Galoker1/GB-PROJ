@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+// не смог грамотно расскидать по файлам и viewModel-ам
+
 struct SearchView: View {
+    @StateObject private var viewModel = MainPageViewModel()
+    @State var networkManager = NetworkManager.shared
+    @State var networkFilms: [Film] = []
+
     @State private var selectedGenres: Set<String> = []
     @State private var selectedCountry: Set<String> = []
     @State private var selectedYears: Set<String> = []
+    // MARK: переменная текста поиска
     @State var nameMovie: String = ""
+    
+    //MARK: Массив куда хранятся все данные после поиска
+    @State var arrayOfSearchedFilms: [ViewFilm] = []
     
     var body: some View {
         ScrollView {
-            
             VStack(alignment: .leading, spacing: 4) {
                 CustomTextTextLabel(textLabel: "Название",
                                     color: .white,
@@ -64,15 +73,37 @@ struct SearchView: View {
                 WideBlueButton(buttonText: "Поиск") {
                     performSearch()
                 }
+                
             }
             .padding(.all, 16)
             .background(Color.Neutral.num3)
+            
+        }
+    }
+    
+    // MARK: Func загружает данные после поиска
+    func loadFilteredData(name: String) {
+        networkManager.fetchSearch(name: name) { result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    self.networkFilms = data.docs ?? []
+                    self.arrayOfSearchedFilms =  ModelsConverter.shared.convertFilm(networkModel: self.networkFilms)
+                    MainPageViewModel().filteredFilms = ModelsConverter.shared.convertFilm(networkModel: self.networkFilms)
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
         }
     }
     
     private func performSearch() {
         //выполнить поиск на основе выбранных свойств selectedGenres, selectedYears и selectedRatings
+        loadFilteredData(name: nameMovie)
     }
+    
+    
 }
 
 
