@@ -19,9 +19,8 @@ struct MainPageView: View {
     
     var body: some View {
             VStack {
-                CustomDisplayTextLabel(textLabel: TabBarProperties.moviesCatalog.tabBarTitle,
-                                       color: Color.Primary.num1,
-                                       style: .T1DisplaySemibold)
+                CustomHeaderView(textLabel: TabBarProperties.moviesCatalog.tabBarTitle)
+                    .padding(.horizontal, 16)
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(viewModel.films, id: \.self) { movie in
@@ -69,7 +68,7 @@ struct MainPageView: View {
     }
 }
 
-struct DescriptionMovieView_Previews: PreviewProvider {
+struct MainPageView_Previews: PreviewProvider {
     static var previews: some View {
         MainPageView()
     }
