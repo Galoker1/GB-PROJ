@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomHeaderView: View {
     @State private var isSearchViewVisible = false
+    var searchFunc: ((String) -> Void)? = nil
     var textLabel: String
 
     var body: some View {
@@ -27,7 +28,7 @@ struct CustomHeaderView: View {
             }
         } 
         .sheet(isPresented: $isSearchViewVisible) {
-            SearchView()
+            SearchView(searchFunc: searchFunc)
                 .frame(maxHeight: .infinity)
                 .background(Color.Neutral.num2)
                 .presentationDetents([.medium])

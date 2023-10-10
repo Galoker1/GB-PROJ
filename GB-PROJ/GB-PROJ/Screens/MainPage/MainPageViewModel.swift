@@ -20,7 +20,7 @@ class MainPageViewModel: ObservableObject {
     init() { }
 
     func loadData() {
-        networkManager.fetchMovie(limit: 10) { result in
+        networkManager.fetchMovie(limit: 5){ result in
             switch result {
             case .success(let data):
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
@@ -54,4 +54,42 @@ class MainPageViewModel: ObservableObject {
             }
         }
     }
+    
+    public func searchByName(searchString: String) {
+        networkManager.fetchSearch(name: searchString) { result in
+            switch result {
+            case .success(let data):
+                let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
+                self.networkFilms = data.docs ?? []
+                self.films = []
+                for networkModel in self.networkFilms {
+                    serialQueue.async { // Use your serial queue
+                        NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
+                            if let image = image {
+                                let poster = image
+                                let film = ViewFilm(kpRating: networkModel.rating.kp,
+                                                     imdbEating: networkModel.rating.imdb,
+                                                     criticsRating: networkModel.rating.filmCritics,
+                                                     name: networkModel.name,
+                                                     description: networkModel.description,
+                                                     year: networkModel.year,
+                                                     poster: poster,
+                                                     countries: networkModel.countries,
+                                                     genres: networkModel.genres,
+                                                     movieLength: networkModel.movieLength)
+
+                                // Use receive(on:) to ensure updates happen on the main thread
+                                DispatchQueue.main.async {
+                                    self.films.append(film)
+                                }
+                            }
+                        }
+                    }
+                }
+            case .failure(let error):
+                print("Ошибка конвертации \(error)")
+            }
+        }
+    }
+
 }
