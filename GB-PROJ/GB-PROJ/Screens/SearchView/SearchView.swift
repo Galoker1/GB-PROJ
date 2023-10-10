@@ -12,6 +12,7 @@ struct SearchView: View {
     @State private var selectedGenres: Set<String> = []
     @State private var selectedCountry: Set<String> = []
     @State private var selectedYears: Set<String> = []
+    var searchFunc: ((String) -> Void)? = nil
     @State var nameMovie: String = ""
     
     var body: some View {
@@ -72,15 +73,16 @@ struct SearchView: View {
     }
     
     private func performSearch() {
+        searchFunc?(nameMovie)
         //выполнить поиск на основе выбранных свойств selectedGenres, selectedYears и selectedRatings
     }
 }
 
 
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView(searchFunc: sear)
+//    }
+//}
 

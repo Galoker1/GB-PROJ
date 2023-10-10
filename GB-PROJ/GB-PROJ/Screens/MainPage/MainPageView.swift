@@ -19,7 +19,7 @@ struct MainPageView: View {
     
     var body: some View {
             VStack {
-                CustomHeaderView(textLabel: TabBarProperties.moviesCatalog.tabBarTitle)
+                CustomHeaderView(searchFunc: viewModel.searchByName, textLabel: TabBarProperties.moviesCatalog.tabBarTitle)
                     .padding(.horizontal, 16)
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
