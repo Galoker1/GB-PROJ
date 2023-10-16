@@ -25,6 +25,9 @@ class MainPageViewModel: ObservableObject {
             case .success(let data):
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
                 self.networkFilms = data.docs ?? []
+                serialQueue.async {
+                    self.films = []
+                }
                 for networkModel in self.networkFilms {
                     serialQueue.async { // Use your serial queue
                         NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
@@ -61,7 +64,9 @@ class MainPageViewModel: ObservableObject {
             case .success(let data):
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
                 self.networkFilms = data.docs ?? []
-                self.films = []
+                serialQueue.async {
+                    self.films = []
+                }
                 for networkModel in self.networkFilms {
                     serialQueue.async { // Use your serial queue
                         NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
