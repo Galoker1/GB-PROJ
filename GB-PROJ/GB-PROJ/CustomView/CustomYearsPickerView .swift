@@ -1,23 +1,22 @@
 //
-//  WideTextFieldWithPlaceholder.swift
+//  CustomYearsPickerView .swift
 //  GB-PROJ
 //
-//  Created by Александра Макей on 08.10.2023.
+//  Created by Александра Макей on 17.10.2023.
 //
 
 import SwiftUI
 
-struct CustomPickerView<T: ChosePickersProperties>: View {
+struct CustomYearsPickerView: View {
     var placeholder: String
-    @Binding var selectedProperties: Set<String>
+    @Binding var selectedYears: Set<Int>
     @State private var isPickerVisible = false
-    @State var enumCases: [T]
+    var yearRange: [Int]
     
-    
-    init(placeholder: String, selectedProperties: Binding<Set<String>>, enumCases: [T]) {
+    init(placeholder: String, selectedYears: Binding<Set<Int>>, yearRange: [Int]) {
         self.placeholder = placeholder
-        self._selectedProperties = selectedProperties
-        self.enumCases = enumCases
+        self._selectedYears = selectedYears
+        self.yearRange = yearRange
     }
     
     var body: some View {
@@ -40,12 +39,12 @@ struct CustomPickerView<T: ChosePickersProperties>: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(Array(selectedProperties), id: \.self) { item in
+                    ForEach(Array(selectedYears), id: \.self) { item in
                         HStack {
-                            Text(item)
+                            Text("\(item)")
                             
                             Button(action: {
-                                removeProperties(item)
+                                removeYear(item)
                             }) {
                                 Image(systemName: "xmark.circle")
                                     .foregroundColor(Color.Neutral.num3)
@@ -63,26 +62,24 @@ struct CustomPickerView<T: ChosePickersProperties>: View {
             
             if isPickerVisible {
                 List {
-                    ForEach(enumCases, id: \.self) { item in
+                    ForEach(yearRange, id: \.self) { item in
                         HStack {
-                            Text(item.russianName)
-                            if selectedProperties.contains(item.russianName) {
+                            Text("\(item)")
+                            if selectedYears.contains(item) {
                                 Image(systemName: "checkmark")
                                     .foregroundColor(.black)
                             }
-                      
                         }
                         .listRowBackground(Color.Neutral.num1)
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            if selectedProperties.contains(item.russianName) {
-                                selectedProperties.remove(item.russianName)
+                            if selectedYears.contains(item) {
+                                selectedYears.remove(item)
                             } else {
-                                selectedProperties.insert(item.russianName)
+                                selectedYears.insert(item)
                             }
                         }
                     }
-                    
                 }
                 .frame(height: 135)
                 .background(Color.Neutral.num1)
@@ -93,18 +90,11 @@ struct CustomPickerView<T: ChosePickersProperties>: View {
         .cornerRadius(12)
     }
     
-    private func addProperties(_ property: String) {
-        var propertiesArray = Array(selectedProperties)
-        propertiesArray.append(property)
-        selectedProperties = Set(propertiesArray)
+    private func addYear(_ year: Int) {
+        selectedYears.insert(year)
     }
     
-    private func removeProperties(_ property: String) {
-        var propertiesArray = Array(selectedProperties)
-        if let index = propertiesArray.firstIndex(of: property) {
-            propertiesArray.remove(at: index)
-            selectedProperties = Set(propertiesArray)
-        }
+    private func removeYear(_ year: Int) {
+        selectedYears.remove(year)
     }
 }
-

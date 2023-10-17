@@ -10,7 +10,10 @@ import SwiftUI
 struct CustomHeaderView: View {
     @State private var isSearchViewVisible = false
     var textLabel: String
-
+    
+    @State private var larger = true
+    
+    
     var body: some View {
         HStack {
             CustomDisplayTextLabel(textLabel: textLabel,
@@ -25,13 +28,15 @@ struct CustomHeaderView: View {
                     .frame(width: 25, height: 25)
                     .foregroundColor(Color.Primary.num1)
             }
-        } 
+        }
         .sheet(isPresented: $isSearchViewVisible) {
             SearchView()
-                .frame(maxHeight: .infinity)
-                .background(Color.Neutral.num2)
+            
                 .presentationDetents([.medium])
-              
+            
+                .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                .animation(Animation.easeInOut(duration: 0.5))
+                .background(Color.Neutral.num2)
         }
     }
 }

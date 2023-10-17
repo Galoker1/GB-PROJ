@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DescriptionMovieView: View {
     let viewFilm: ViewFilm
+    @State private var isLoading = false
     var titleFilm: String = "ГИПНОТИК"
     var rating: String =  "4"
     var releaseYear: String = "2016"
@@ -23,10 +24,16 @@ struct DescriptionMovieView: View {
         ScrollView {
             VStack {
                 ZStack {
-                    Image(uiImage: viewFilm.poster ?? UIImage())
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(height: 500)
+                    if let posterImage = viewFilm.poster {
+                                          Image(uiImage: posterImage)
+                                              .resizable()
+                                              .aspectRatio(contentMode: .fill)
+                                              .frame(height: 500)
+                    } else {
+                            ProgressView()
+                                .frame(width: UIScreen.main.bounds.width,  height: 500)
+
+                    }
                     GradientView()
                         .frame(height: 300)
                         .padding(.bottom, -300)
@@ -35,10 +42,12 @@ struct DescriptionMovieView: View {
                 CustomDisplayTextLabel(textLabel: viewFilm.name,
                                        color: .white,
                                        style: .T1DisplaySemibold)
-                //.padding(.leading, 10)
                 Divider()
  
-                InfoAndRatingView(rating: String(viewFilm.imdbEating), releaseYear: String(viewFilm.year), genre: viewFilm.genres, shortDiscription: viewFilm.description)
+                InfoAndRatingView(rating: String(viewFilm.imdbEating),
+                                  releaseYear: String(viewFilm.year),
+                                  genre: viewFilm.genres,
+                                  shortDiscription: viewFilm.description)
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
                 
@@ -60,9 +69,3 @@ struct DescriptionMovieView: View {
         .background(Color.Neutral.num3)
     }
 }
-
-//struct DescriptionMovieView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DescriptionMovieView()
-//    }
-//}

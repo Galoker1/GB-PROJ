@@ -10,10 +10,9 @@ import SwiftUI
 struct TabBarView: View {
     
     @State private var selectedTab: TabBarProperties = .moviesCatalog
+    @GestureState private var dragState: CGFloat = 0
+    @State private var offset: CGFloat = 0
     
-    init() {
-        UITabBar.appearance().isHidden = false
-    }
     var body: some View {
         ZStack {
             VStack {
@@ -33,6 +32,16 @@ struct TabBarView: View {
                         .tag(tab)
                     }
                 }
+                .offset(x: self.offset)
+                .gesture(
+                    DragGesture().updating($dragState) { (value, state, transaction) in
+                        state = value.translation.width
+                    }
+                    .onEnded { value in
+                        swipe(value)
+                    }
+                )
+
             }
             
             VStack {
@@ -42,6 +51,21 @@ struct TabBarView: View {
             }
         }
         .ignoresSafeArea(.all)
+    }
+    private func swipe(_ value: GestureStateGesture<DragGesture, CGFloat>.Value) {
+        if value.predictedEndTranslation.width < -50 {
+            if let newIndex = TabBarProperties.allCases.firstIndex(of: selectedTab) {
+                let nextIndex = (newIndex + 1) % TabBarProperties.allCases.count
+                selectedTab = TabBarProperties.allCases[nextIndex]
+            }
+        } else if value.predictedEndTranslation.width > 50 {
+            if let newIndex = TabBarProperties.allCases.firstIndex(of: selectedTab) {
+                let previousIndex = (newIndex - 1 + TabBarProperties.allCases.count) % TabBarProperties.allCases.count
+                selectedTab = TabBarProperties.allCases[previousIndex]
+            }
+        }
+        self.offset = 0
+
     }
 }
 
