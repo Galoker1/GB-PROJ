@@ -7,26 +7,6 @@
 
 import Foundation
 
-//enum ChoseCountry: String, CaseIterable, ChosePickersProperties {
-//    case usa = "USA"
-//    case russia = "Russia"
-//    case france = "France"
-//    case uk = "UK"
-//    case germany = "Germany"
-//
-//
-//    var russianName: String {
-//        switch self {
-//            case .usa: return "США"
-//            case .russia: return "Россия"
-//            case .france: return "Франция"
-//            case .uk: return "Великобритания"
-//            case .germany: return "Германия"
-//          
-//        }
-//    }
-//}
-
 enum ChoseCountry: String, CaseIterable, ChosePickersProperties {
     case usa = "USA"
     case russia = "Russia"
