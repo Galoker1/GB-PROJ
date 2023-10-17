@@ -15,31 +15,32 @@ struct Movie: Codable, Hashable {
 }
 
 struct Film: Codable, Hashable{
-    let rating: Rating
-    let name: String
-    let description: String
-    let year: Int
+    let id: Int?
+    let rating: Rating?
+    let name: String?
+    let description: String?
+    let year: Int?
     let movieLength: Int?
-    let poster: Poster
+    let poster: Poster?
     let genres: [Genre]
     let countries: [Country]
 }
 
 struct Genre: Codable, Hashable {
-    let name: String
+    let name: String?
 }
 
 struct Country: Codable, Hashable {
-    let name: String
+    let name: String?
 }
 
 struct Rating: Codable, Hashable{
-    let kp: Double
-    let imdb: Double
-    let filmCritics: Double
+    let kp: Double?
+    let imdb: Double?
+    let filmCritics: Double?
 }
 
 struct Poster: Codable, Hashable{
-    let url: String
-    let previewUrl: String
+    let url: String?
+    let previewUrl: String?
 }

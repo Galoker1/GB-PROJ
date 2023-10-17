@@ -30,23 +30,26 @@ class MainPageViewModel: ObservableObject {
                 }
                 for networkModel in self.networkFilms {
                     serialQueue.async { // Use your serial queue
-                        NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
-                            if let image = image {
-                                let poster = image
-                                let film = ViewFilm(kpRating: networkModel.rating.kp,
-                                                     imdbEating: networkModel.rating.imdb,
-                                                     criticsRating: networkModel.rating.filmCritics,
-                                                     name: networkModel.name,
-                                                     description: networkModel.description,
-                                                     year: networkModel.year,
-                                                     poster: poster,
-                                                     countries: networkModel.countries,
-                                                     genres: networkModel.genres,
-                                                     movieLength: networkModel.movieLength)
-
-                                // Use receive(on:) to ensure updates happen on the main thread
-                                DispatchQueue.main.async {
-                                    self.films.append(film)
+                        if let url = networkModel.poster?.url {
+                            NetworkManager.shared.loadImageFromURL(url) { image in
+                                if let image = image {
+                                    let poster = image
+                                    let film = ViewFilm(id: networkModel.id,
+                                                        kpRating: networkModel.rating?.kp,
+                                                        imdbEating: networkModel.rating?.imdb,
+                                                        criticsRating: networkModel.rating?.filmCritics,
+                                                        name: networkModel.name,
+                                                        description: networkModel.description,
+                                                        year: networkModel.year,
+                                                        poster: poster,
+                                                        countries: networkModel.countries,
+                                                        genres: networkModel.genres,
+                                                        movieLength: networkModel.movieLength)
+                                    
+                                    // Use receive(on:) to ensure updates happen on the main thread
+                                    DispatchQueue.main.async {
+                                        self.films.append(film)
+                                    }
                                 }
                             }
                         }
@@ -69,23 +72,26 @@ class MainPageViewModel: ObservableObject {
                 }
                 for networkModel in self.networkFilms {
                     serialQueue.async { // Use your serial queue
-                        NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
-                            if let image = image {
-                                let poster = image
-                                let film = ViewFilm(kpRating: networkModel.rating.kp,
-                                                     imdbEating: networkModel.rating.imdb,
-                                                     criticsRating: networkModel.rating.filmCritics,
-                                                     name: networkModel.name,
-                                                     description: networkModel.description,
-                                                     year: networkModel.year,
-                                                     poster: poster,
-                                                     countries: networkModel.countries,
-                                                     genres: networkModel.genres,
-                                                     movieLength: networkModel.movieLength)
-
-                                // Use receive(on:) to ensure updates happen on the main thread
-                                DispatchQueue.main.async {
-                                    self.films.append(film)
+                        if let url = networkModel.poster?.url {
+                            NetworkManager.shared.loadImageFromURL(url) { image in
+                                if let image = image {
+                                    let poster = image
+                                    let film = ViewFilm(id: networkModel.id,
+                                                        kpRating: networkModel.rating?.kp,
+                                                        imdbEating: networkModel.rating?.imdb,
+                                                        criticsRating: networkModel.rating?.filmCritics,
+                                                        name: networkModel.name,
+                                                        description: networkModel.description,
+                                                        year: networkModel.year,
+                                                        poster: poster,
+                                                        countries: networkModel.countries,
+                                                        genres: networkModel.genres,
+                                                        movieLength: networkModel.movieLength)
+                                    
+                                    // Use receive(on:) to ensure updates happen on the main thread
+                                    DispatchQueue.main.async {
+                                        self.films.append(film)
+                                    }
                                 }
                             }
                         }

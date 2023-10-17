@@ -8,27 +8,34 @@
 import SwiftUI
 
 struct PersonCatalogView: View {
-    @StateObject private var viewModel = MainPageViewModel()
-    
+    let films: [MovieCD] = CoreDataManager.shared.getFilms()
     var body: some View {
         VStack {
             CustomHeaderView(textLabel: TabBarProperties.personCatalog.tabBarTitle)
                 .padding(.horizontal, 16)
             
             //TODO: - сдела заглушки, как будут отделены фильмы от сериалов, нужно будет запихнуть данные сюда
-            List {
-                ForEach(viewModel.films, id: \.self) { movie in
-                    HStack {
-                        Text(movie.name)
-                        Spacer()
-                        Image(uiImage: movie.poster ?? UIImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 35)
+            Text("Количество:\(CoreDataManager.shared.getFilms().count)")
+            ScrollView {
+                ForEach(films, id: \.self) { movie in
+                    LazyVStack(alignment: .leading){
+                        VStack(alignment: .leading) {
+                            ZStack{
+                                
+                                Text(movie.name ?? " ")
+                                    .font(.system(size: 16))
+                                    .lineLimit(1)
+                            }
+                            
+                        }
+                        .foregroundColor(Color.white)
+                        .padding()
+                        .cornerRadius(10)
+                        .frame(height: 250)
                     }
                 }
             }
+            .background(Color.Neutral.num3)
         }
-        .background(Color.Neutral.num3)
     }
 }
