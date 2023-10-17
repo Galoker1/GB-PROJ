@@ -51,7 +51,7 @@ struct DescriptionMovieView: View {
                 .padding(.top, 10)
                 .padding(.horizontal, 20)
                 
-                WideSaveShareButtonsView(titleFilm: titleFilm, appLink: "Ссылка на фильм")
+                WideSaveShareButtonsView(titleFilm: titleFilm, appLink: "Ссылка на фильм", film: viewFilm)
                     .padding(.horizontal, 16)
                  
                   
