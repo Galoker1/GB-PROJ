@@ -24,8 +24,8 @@ struct DescriptionMovieView: View {
         ScrollView {
             VStack {
                 ZStack {
-                    if let posterImage = viewFilm.poster {
-                                          Image(uiImage: posterImage)
+                    if UIImage() != viewFilm.poster {
+                        Image(uiImage: viewFilm.poster)
                                               .resizable()
                                               .aspectRatio(contentMode: .fill)
                                               .frame(height: 500)
