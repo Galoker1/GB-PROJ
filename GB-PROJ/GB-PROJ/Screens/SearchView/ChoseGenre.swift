@@ -55,32 +55,3 @@ enum ChoseGenre: String, CaseIterable, ChosePickersProperties {
     }
 }
 
-enum ChoseYears: String, CaseIterable, ChosePickersProperties {    
-    case twentyFirst, twentySecond, twentyThird, twentyFourth, twentyFifth, twentySixth, twentySeventh, twentyEighth, twentyNinth
-
-    var russianName: String {
-        switch self {
-         
-        case .twentyFirst:
-            return "2001"
-        case .twentySecond:
-            return "2002"
-        case .twentyThird:
-            return "2003"
-        case .twentyFourth:
-            return "2004"
-        case .twentyFifth:
-            return "2005"
-        case .twentySixth:
-            return "2006"
-        case .twentySeventh:
-            return "2007"
-        case .twentyEighth:
-            return "2008"
-        case .twentyNinth:
-            return "2009"
-        default :
-            return "2001"
-        }
-    }
-}

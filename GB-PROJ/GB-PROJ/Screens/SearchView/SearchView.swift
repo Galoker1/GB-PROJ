@@ -11,8 +11,10 @@ import Combine
 struct SearchView: View {
     @State private var selectedGenres: Set<String> = []
     @State private var selectedCountry: Set<String> = []
-    @State private var selectedYears: Set<String> = []
+
+    @State private var selectedYears: Set<Int> = []
     var searchFunc: ((String) -> Void)? = nil
+
     @State var nameMovie: String = ""
     
     var body: some View {
@@ -61,11 +63,14 @@ struct SearchView: View {
                                     style: .T2TextSemibold)
                 .padding(.horizontal, 8)
                 
-                CustomPickerView(placeholder: "Любой год", selectedProperties: $selectedYears, enumCases: ChoseYears.allCases)
-                    .padding(.bottom, 20)
+                CustomYearsPickerView(placeholder: "Любой год", selectedYears: $selectedYears, yearRange: YearRange.allYears())
+
+                Spacer().frame(height: 20)
+
                 WideBlueButton(buttonText: "Поиск") {
                     performSearch()
                 }
+                .frame(height: 40)
             }
             .padding(.all, 16)
             .background(Color.Neutral.num3)
