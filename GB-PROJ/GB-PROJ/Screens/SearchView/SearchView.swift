@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchView: View {
     @State private var selectedGenres: Set<String> = []
     @State private var selectedCountry: Set<String> = []
+
     @State private var selectedYears: Set<Int> = []
+    var searchFunc: ((String) -> Void)? = nil
+
     @State var nameMovie: String = ""
     
     var body: some View {
@@ -44,7 +48,7 @@ struct SearchView: View {
                 .padding(.horizontal, 8)
                 
                 CustomPickerView(placeholder: "Любой жанр", selectedProperties: $selectedGenres, enumCases: ChoseGenre.allCases)
-                Spacer().frame(height: 6)
+                    .padding(.bottom, 6)
                 
                 CustomTextTextLabel(textLabel: "Страна",
                                     color: .white,
@@ -52,7 +56,7 @@ struct SearchView: View {
                 .padding(.horizontal, 8)
                 
                 CustomPickerView(placeholder: "Любая страна", selectedProperties: $selectedCountry, enumCases: ChoseCountry.allCases)
-                Spacer().frame(height: 6)
+                    .padding(.bottom, 6)
                 
                 CustomTextTextLabel(textLabel: "Год",
                                     color: .white,
@@ -62,6 +66,7 @@ struct SearchView: View {
                 CustomYearsPickerView(placeholder: "Любой год", selectedYears: $selectedYears, yearRange: YearRange.allYears())
 
                 Spacer().frame(height: 20)
+
                 WideBlueButton(buttonText: "Поиск") {
                     performSearch()
                 }
@@ -73,15 +78,16 @@ struct SearchView: View {
     }
     
     private func performSearch() {
+        searchFunc?(nameMovie)
         //выполнить поиск на основе выбранных свойств selectedGenres, selectedYears и selectedRatings
     }
 }
 
 
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView(searchFunc: sear)
+//    }
+//}
 

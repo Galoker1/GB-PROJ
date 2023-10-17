@@ -19,12 +19,12 @@ struct MainPageView: View {
     
     var body: some View {
             VStack {
-                CustomHeaderView(textLabel: TabBarProperties.moviesCatalog.tabBarTitle)
+                CustomHeaderView(searchFunc: viewModel.searchByName, textLabel: TabBarProperties.moviesCatalog.tabBarTitle)
                     .padding(.horizontal, 16)
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(viewModel.films, id: \.self) { movie in
-                            VStack(alignment: .leading){
+                            LazyVStack(alignment: .leading){
                                 Button() {
                                     selectedMovie = movie
                                     isSecondViewActive = true

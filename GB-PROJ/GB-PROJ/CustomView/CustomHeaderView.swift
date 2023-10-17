@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomHeaderView: View {
     @State private var isSearchViewVisible = false
+    var searchFunc: ((String) -> Void)? = nil
     var textLabel: String
     
     @State private var larger = true
@@ -30,8 +31,10 @@ struct CustomHeaderView: View {
             }
         }
         .sheet(isPresented: $isSearchViewVisible) {
-            SearchView()
-            
+
+            SearchView(searchFunc: searchFunc)
+                .frame(maxHeight: .infinity)
+                .background(Color.Neutral.num2)
                 .presentationDetents([.medium])
             
                 .transition(.asymmetric(insertion: .scale, removal: .opacity))
