@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DescriptionMovieView: View {
     let viewFilm: ViewFilm
-    @State private var isLoading = false
+    
     var titleFilm: String = "ГИПНОТИК"
     var rating: String =  "4"
     var releaseYear: String = "2016"
@@ -24,8 +24,8 @@ struct DescriptionMovieView: View {
         ScrollView {
             VStack {
                 ZStack {
-                    if UIImage() != viewFilm.poster {
-                        Image(uiImage: viewFilm.poster)
+                    if let posterImage = viewFilm.poster {
+                        Image(uiImage: posterImage)
                                               .resizable()
                                               .aspectRatio(contentMode: .fill)
                                               .frame(height: 500)

@@ -14,6 +14,7 @@ struct Movie: Codable, Hashable {
     }
 }
 
+
 struct Film: Codable, Hashable{
     let id: Int?
     let rating: Rating?
@@ -44,3 +45,4 @@ struct Poster: Codable, Hashable{
     let url: String?
     let previewUrl: String?
 }
+

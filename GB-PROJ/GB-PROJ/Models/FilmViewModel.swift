@@ -1,5 +1,5 @@
 //
-//  MainPageViewModel.swift
+//  FilmViewModel.swift
 //  GB-PROJ
 //
 //  Created by Егор  Хлямов on 24.09.2023.
@@ -10,9 +10,12 @@ import Combine
 import SwiftUI
 import Dispatch
 
-class MainPageViewModel: ObservableObject {
+class FilmViewModel: ObservableObject {
+    //Заглушки для проверки UI компонентов
+    
+    @Published var films: [ViewFilm] = [ViewFilm.placeholder(), ViewFilm.placeholder(), ViewFilm.placeholder()]
     var networkFilms: [Film] = []
-    @Published var films: [ViewFilm] = []
+//    @Published var films: [ViewFilm] = []
     @Published var images: UIImage = UIImage()
     private var cancellables = Set<AnyCancellable>()
     var networkManager = NetworkManager.shared
@@ -26,8 +29,10 @@ class MainPageViewModel: ObservableObject {
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
                 self.networkFilms = data.docs ?? []
                 serialQueue.async {
-                    self.films = []
-                }
+                               DispatchQueue.main.async {
+                                   self.films = []
+                               }
+                           }
                 for networkModel in self.networkFilms {
                     serialQueue.async { // Use your serial queue
                         if let url = networkModel.poster?.url {
