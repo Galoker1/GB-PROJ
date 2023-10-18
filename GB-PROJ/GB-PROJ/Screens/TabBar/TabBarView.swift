@@ -22,9 +22,9 @@ struct TabBarView: View {
                         HStack {
                             switch selectedTab {
                             case .moviesCatalog:
-                                MainPageView()
+                                MainPageView(viewModel: FilmViewModel(typeOfTitle: "movie"))
                             case .seriesCatalog:
-                                SeriesCatalogView()
+                                MainPageView(viewModel: FilmViewModel(typeOfTitle: "tv-series"))
                             case .personCatalog:
                                 PersonCatalogView()
                             }

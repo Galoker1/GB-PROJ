@@ -12,7 +12,7 @@ import Dispatch
 
 class FilmViewModel: ObservableObject {
     //Заглушки для проверки UI компонентов
-    
+    var typeOfTitle: String
     @Published var films: [ViewFilm] = [ViewFilm.placeholder(), ViewFilm.placeholder(), ViewFilm.placeholder()]
     var networkFilms: [Film] = []
 //    @Published var films: [ViewFilm] = []
@@ -20,10 +20,12 @@ class FilmViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     var networkManager = NetworkManager.shared
 
-    init() { }
+    init(typeOfTitle: String) {
+        self.typeOfTitle = typeOfTitle
+    }
 
     func loadData() {
-        networkManager.fetchMovie(limit: 5){ result in
+        networkManager.fetchMovie(limit: 5, typeOfTitle: typeOfTitle) { result in
             switch result {
             case .success(let data):
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
@@ -67,7 +69,7 @@ class FilmViewModel: ObservableObject {
     }
     
     public func searchByName(searchString: String) {
-        networkManager.fetchSearch(name: searchString) { result in
+        networkManager.fetchSearch(name: searchString, type: typeOfTitle) { result in
             switch result {
             case .success(let data):
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")

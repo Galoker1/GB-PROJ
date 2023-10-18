@@ -16,9 +16,9 @@ class NetworkManager {
     private init() {
         
     }
-    func fetchMovie(limit: Int, completion: @escaping CompletionHandler){
+    func fetchMovie(limit: Int, typeOfTitle: String, completion: @escaping CompletionHandler){
         
-        let apiKey = "JA8F3QZ-301MWVM-GVP9D91-7B1ZWSQ"
+        let apiKey = "5FHVVKT-0DAMRVZ-KPQCZYP-HZBFTY8"
         let urlStr = "https://api.kinopoisk.dev/v1.3/movie"
         
         guard let url = URL(string: urlStr) else {
@@ -27,6 +27,7 @@ class NetworkManager {
         }
         let queryItems = [
             URLQueryItem(name: "limit", value: "\(limit)"),
+            URLQueryItem(name: "type", value: "\(typeOfTitle)"),
         ]
         var urlComponents = URLComponents(string: urlStr)
         urlComponents?.queryItems = queryItems
@@ -65,7 +66,7 @@ class NetworkManager {
         task.resume()
     }
     
-    func fetchSearch(name: String, completion: @escaping CompletionHandler){
+    func fetchSearch(name: String, type: String, completion: @escaping CompletionHandler){
         
         let apiKey = "JA8F3QZ-301MWVM-GVP9D91-7B1ZWSQ"
         let urlStr = "https://api.kinopoisk.dev/v1.3/movie"
@@ -76,6 +77,7 @@ class NetworkManager {
         }
         let queryItems = [
             URLQueryItem(name: "name", value: name),
+            URLQueryItem(name: "type", value: type),
         ]
         var urlComponents = URLComponents(string: urlStr)
         urlComponents?.queryItems = queryItems

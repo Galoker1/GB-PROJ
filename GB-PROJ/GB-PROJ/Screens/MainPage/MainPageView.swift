@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPageView: View {
-    @StateObject private var viewModel = FilmViewModel()
+    @StateObject var viewModel: FilmViewModel
     @State private var isSecondViewActive = false
     @State private var isStyled = true
     @State var selectedMovie: ViewFilm? = nil
@@ -68,8 +68,8 @@ struct MainPageView: View {
     }
 }
 
-struct MainPageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainPageView()
-    }
-}
+//struct MainPageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainPageView()
+//    }
+//}
