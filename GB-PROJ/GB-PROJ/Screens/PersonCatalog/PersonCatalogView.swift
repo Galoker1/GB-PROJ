@@ -10,7 +10,7 @@ import SwiftUI
 struct PersonCatalogView: View {
     @StateObject private var filmViewModel = FilmViewModel()
     @StateObject private var tvShowViewModel = TVShowViewModel()
-    
+    let films: [MovieCD] = CoreDataManager.shared.getFilms()
     var body: some View {
         VStack {
             CustomDisplayTextLabel(textLabel: TabBarProperties.personCatalog.tabBarTitle,
@@ -25,6 +25,7 @@ struct PersonCatalogView: View {
                                                    style: .T1DisplaySemibold)) {
                     ForEach(filmViewModel.films, id: \.self) { movie in
                         CustomTableViewCell(mediaItem: movie)
+
                     }
                     .onDelete { indexSet in
                         deleteItems($filmViewModel.films, at: indexSet)
@@ -57,7 +58,30 @@ struct PersonCatalogView: View {
     }
 }
 
-
+//
+//    var body: some View {
+//        VStack {
+//            CustomHeaderView(textLabel: TabBarProperties.personCatalog.tabBarTitle)
+//                .padding(.horizontal, 16)
+//
+//            //TODO: - сдела заглушки, как будут отделены фильмы от сериалов, нужно будет запихнуть данные сюда
+//            Text("Количество:\(CoreDataManager.shared.getFilms().count)")
+//            ScrollView {
+//                ForEach(films, id: \.self) { movie in
+//                    LazyVStack(alignment: .leading){
+//                        VStack(alignment: .leading) {
+//                            ZStack{
+//
+//                                Text(movie.name ?? " ")
+//                                    .font(.system(size: 16))
+//                                    .lineLimit(1)
+//                            }
+//
+//                        }
+//                        .foregroundColor(Color.white)
+//                        .padding()
+//                        .cornerRadius(10)
+//                        .frame(height: 250)
 
 
 struct PersonCatalogView_Previews: PreviewProvider {
@@ -65,5 +89,6 @@ struct PersonCatalogView_Previews: PreviewProvider {
         PersonCatalogView()
             .environmentObject(FilmViewModel())
             .environmentObject(TVShowViewModel())
+        }
     }
 }

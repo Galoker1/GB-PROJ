@@ -49,6 +49,10 @@
 		85F532A92AD2F8C200298501 /* ChosePickersProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F532A82AD2F8C200298501 /* ChosePickersProperties.swift */; };
 		85F532AB2AD2F8D700298501 /* ChoseCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F532AA2AD2F8D700298501 /* ChoseCountry.swift */; };
 		85F532AD2AD2F8EA00298501 /* ChoseGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F532AC2AD2F8EA00298501 /* ChoseGenre.swift */; };
+		85F532AF2AD4100600298501 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F532AE2AD4100600298501 /* Test.swift */; };
+		DE61B85F2ADDB9D2000CE523 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61B85E2ADDB9D2000CE523 /* CoreDataManager.swift */; };
+		DE61B8642ADDBBD8000CE523 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61B8632ADDBBD8000CE523 /* PersistenceController.swift */; };
+		DE61B8662ADDC02F000CE523 /* FilmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE61B8652ADDC02F000CE523 /* FilmData.swift */; };
 		DE8ACACB2ABA2BCE00B9EB5A /* GB_PROJApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */; };
 		DE8ACACF2ABA2BCF00B9EB5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE8ACACE2ABA2BCF00B9EB5A /* Assets.xcassets */; };
 		DE8ACAD22ABA2BCF00B9EB5A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE8ACAD12ABA2BCF00B9EB5A /* Preview Assets.xcassets */; };
@@ -129,6 +133,9 @@
 		94C666342AC0427E002CB7CF /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		94C666362AC049D0002CB7CF /* FavoriteMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesView.swift; sourceTree = "<group>"; };
 		94C666382AC05759002CB7CF /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DE61B85E2ADDB9D2000CE523 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		DE61B8632ADDBBD8000CE523 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		DE61B8652ADDC02F000CE523 /* FilmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmData.swift; sourceTree = "<group>"; };
 		DE8ACAC72ABA2BCE00B9EB5A /* GB-PROJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GB-PROJ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE8ACACA2ABA2BCE00B9EB5A /* GB_PROJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GB_PROJApp.swift; sourceTree = "<group>"; };
 		DE8ACACE2ABA2BCF00B9EB5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -289,6 +296,16 @@
 			path = SearchView;
 			sourceTree = "<group>";
 		};
+		DE61B85D2ADDB9BA000CE523 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DE61B85E2ADDB9D2000CE523 /* CoreDataManager.swift */,
+				DE61B8632ADDBBD8000CE523 /* PersistenceController.swift */,
+				DE61B8652ADDC02F000CE523 /* FilmData.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		DE8ACABE2ABA2BCE00B9EB5A = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +331,7 @@
 		DE8ACAC92ABA2BCE00B9EB5A /* GB-PROJ */ = {
 			isa = PBXGroup;
 			children = (
+				DE61B85D2ADDB9BA000CE523 /* CoreData */,
 				00C98F792AC19B7700D0436E /* Info.plist */,
 				DEF296202AC0A1F0003AC238 /* Models */,
 				DEF2961F2AC0A18E003AC238 /* Network */,
@@ -558,6 +576,7 @@
 				DEAF28522AC0B29900603019 /* Movie.swift in Sources */,
 				009A248A2ACB12960049F6CA /* ShareSheet.swift in Sources */,
 				00C98F6A2AC18E1400D0436E /* Font.swift in Sources */,
+				DE61B8642ADDBBD8000CE523 /* PersistenceController.swift in Sources */,
 				00C98F8A2AC1A31000D0436E /* TextStyleDisplayProperties.swift in Sources */,
 				00C98F662AC185D300D0436E /* LogoElementView.swift in Sources */,
 				85D9A3302ADEC82000DAB33A /* CustomYearsPickerView .swift in Sources */,
@@ -565,8 +584,10 @@
 				00C98F882AC1A2D800D0436E /* CustomDisplayTextLabel.swift in Sources */,
 				85F532A72AD2D9B000298501 /* CustomPickerView.swift in Sources */,
 				00C98F952AC1AEDD00D0436E /* TabBarProperties.swift in Sources */,
+				DE61B8662ADDC02F000CE523 /* FilmData.swift in Sources */,
 				00C98F622AC1854D00D0436E /* LogoAnimationView.swift in Sources */,
 				00C98F802AC1A02C00D0436E /* LogoBodyLabel.swift in Sources */,
+				DE61B85F2ADDB9D2000CE523 /* CoreDataManager.swift in Sources */,
 				00C98F8C2AC1A34700D0436E /* CustomTextTextLabel.swift in Sources */,
 				0027BC412ACAE0AE00BF80AA /* GradientView.swift in Sources */,
 				00C98F8E2AC1A37100D0436E /* TextStyleTextProperties.swift in Sources */,

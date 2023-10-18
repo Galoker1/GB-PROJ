@@ -65,12 +65,13 @@ struct SearchView: View {
                 
                 CustomYearsPickerView(placeholder: "Любой год", selectedYears: $selectedYears, yearRange: YearRange.allYears())
 
-                Spacer().frame(height: 20)
+            
 
                 WideBlueButton(buttonText: "Поиск") {
                     performSearch()
                 }
                 .frame(height: 40)
+                .padding(.top, 20)
             }
             .padding(.all, 16)
             .background(Color.Neutral.num3)

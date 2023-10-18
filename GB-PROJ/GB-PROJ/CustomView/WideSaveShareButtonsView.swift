@@ -10,7 +10,7 @@ struct WideSaveShareButtonsView: View {
     
     var titleFilm: String
     var appLink: String 
-    
+    var film: ViewFilm
     @State var isButtonTap: Bool = false
     @State private var isShareSheetPresented = false
     
@@ -21,11 +21,17 @@ struct WideSaveShareButtonsView: View {
                 print("Пользователь перешел на сайт")
             }
             .frame(width: 250, height: 60)
-            
+            .onAppear {
+                isButtonTap = CoreDataManager.shared.checkInStore(id: Int64(film.id))
+            }
             Spacer().frame(width: 20)
-            
             Button(action: {
-                //TODO: - Добавить действие для кнопки "Сохранить"
+                if isButtonTap{
+                    CoreDataManager.shared.deleteById(id: Int64(film.id))
+                }
+                else {
+                    CoreDataManager.shared.createFilm(film: film)
+                }
                 isButtonTap.toggle()
             }) {
                 Image(systemName: isButtonTap ? "bookmark.fill" : "bookmark")
