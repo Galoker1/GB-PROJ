@@ -8,27 +8,62 @@
 import SwiftUI
 
 struct PersonCatalogView: View {
-    @StateObject private var viewModel = MainPageViewModel()
+    @StateObject private var filmViewModel = FilmViewModel()
+    @StateObject private var tvShowViewModel = TVShowViewModel()
     
     var body: some View {
         VStack {
-            CustomHeaderView(textLabel: TabBarProperties.personCatalog.tabBarTitle)
-                .padding(.horizontal, 16)
-            
-            //TODO: - сдела заглушки, как будут отделены фильмы от сериалов, нужно будет запихнуть данные сюда
+            CustomDisplayTextLabel(textLabel: TabBarProperties.personCatalog.tabBarTitle,
+                                   color: Color.Primary.num1,
+                                   style: .T1DisplaySemibold)
+            .padding(.horizontal, 16)
+            Divider().background(Color.Primary.num1)
             List {
-                ForEach(viewModel.films, id: \.self) { movie in
-                    HStack {
-                        Text(movie.name)
-                        Spacer()
-                        Image(uiImage: movie.poster ?? UIImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(height: 35)
+                Section(header:
+                            CustomDisplayTextLabel(textLabel: "Фильмы",
+                                                   color: Color.Primary.num1,
+                                                   style: .T1DisplaySemibold)) {
+                    ForEach(filmViewModel.films, id: \.self) { movie in
+                        CustomTableViewCell(mediaItem: movie)
                     }
-                }
+                    .onDelete { indexSet in
+                        deleteItems($filmViewModel.films, at: indexSet)
+                    }
+                } .listRowBackground(Color.Neutral.num2)
+                
+                Section(header:
+                            CustomDisplayTextLabel(textLabel: "Сериалы",
+                                                   color: Color.Primary.num1,
+                                                   style: .T1DisplaySemibold)) {
+                    ForEach(tvShowViewModel.tvShow, id: \.self) { series in
+                        CustomTableViewCell(mediaItem: series)
+                        
+                    }  .onDelete { indexSet in
+                        deleteItems($tvShowViewModel.tvShow, at: indexSet)
+                    }
+                    
+                }.listRowBackground(Color.Neutral.num2)
             }
+            .listStyle(InsetListStyle())
+            .background(Color.Neutral.num3)
+            .scrollContentBackground(.hidden)
         }
         .background(Color.Neutral.num3)
+        
+    }
+    
+    func deleteItems<T>(_ items: Binding<[T]>, at offsets: IndexSet) where T: Identifiable {
+        items.wrappedValue.remove(atOffsets: offsets)
+    }
+}
+
+
+
+
+struct PersonCatalogView_Previews: PreviewProvider {
+    static var previews: some View {
+        PersonCatalogView()
+            .environmentObject(FilmViewModel())
+            .environmentObject(TVShowViewModel())
     }
 }

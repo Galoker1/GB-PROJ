@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SeriesCatalogView: View {
-    @StateObject private var viewModel = MainPageViewModel()
+    @StateObject private var viewModel = FilmViewModel()
     
     var body: some View {
         VStack {

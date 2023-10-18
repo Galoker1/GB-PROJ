@@ -1,5 +1,5 @@
 //
-//  MainPageViewModel.swift
+//  FilmViewModel.swift
 //  GB-PROJ
 //
 //  Created by Егор  Хлямов on 24.09.2023.
@@ -10,9 +10,12 @@ import Combine
 import SwiftUI
 import Dispatch
 
-class MainPageViewModel: ObservableObject {
+class FilmViewModel: ObservableObject {
+    //Заглушки для проверки UI компонентов
+    
+    @Published var films: [ViewFilm] = [ViewFilm.placeholder(), ViewFilm.placeholder(), ViewFilm.placeholder()]
     var networkFilms: [Film] = []
-    @Published var films: [ViewFilm] = []
+//    @Published var films: [ViewFilm] = []
     @Published var images: UIImage = UIImage()
     private var cancellables = Set<AnyCancellable>()
     var networkManager = NetworkManager.shared
@@ -26,10 +29,12 @@ class MainPageViewModel: ObservableObject {
                 let serialQueue = DispatchQueue(label: "com.myapp.myserialqueue")
                 self.networkFilms = data.docs ?? []
                 serialQueue.async {
-                    self.films = []
-                }
+                               DispatchQueue.main.async {
+                                   self.films = []
+                               }
+                           }
                 for networkModel in self.networkFilms {
-                    serialQueue.async { // Use your serial queue
+                    serialQueue.async {
                         NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
                             if let image = image {
                                 let poster = image
@@ -44,7 +49,6 @@ class MainPageViewModel: ObservableObject {
                                                      genres: networkModel.genres,
                                                      movieLength: networkModel.movieLength)
 
-                                // Use receive(on:) to ensure updates happen on the main thread
                                 DispatchQueue.main.async {
                                     self.films.append(film)
                                 }
@@ -68,7 +72,7 @@ class MainPageViewModel: ObservableObject {
                     self.films = []
                 }
                 for networkModel in self.networkFilms {
-                    serialQueue.async { // Use your serial queue
+                    serialQueue.async {
                         NetworkManager.shared.loadImageFromURL(networkModel.poster.url) { image in
                             if let image = image {
                                 let poster = image
@@ -83,7 +87,6 @@ class MainPageViewModel: ObservableObject {
                                                      genres: networkModel.genres,
                                                      movieLength: networkModel.movieLength)
 
-                                // Use receive(on:) to ensure updates happen on the main thread
                                 DispatchQueue.main.async {
                                     self.films.append(film)
                                 }

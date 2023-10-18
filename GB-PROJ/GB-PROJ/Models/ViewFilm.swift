@@ -14,7 +14,7 @@ struct ViewFilmViewModel {
     let poster: UIImage?
 }
 
-class ViewFilm: Identifiable, Hashable, ObservableObject {
+class ViewFilm: MediaItem,  Identifiable, Hashable, ObservableObject {
     
     let id = UUID()
     let kpRating: Double
@@ -26,7 +26,7 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
     let genres: String
     let countries: String
     let movieLength: Int
-    let poster: UIImage
+    let poster: UIImage?
     
     init(kpRating: Double,
          imdbEating: Double,
@@ -34,7 +34,7 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
          name: String,
          description: String,
          year: Int,
-         poster: UIImage,
+         poster: UIImage?,
          countries: [Country],
          genres: [Genre],
          movieLength: Int?)
@@ -58,5 +58,11 @@ class ViewFilm: Identifiable, Hashable, ObservableObject {
     // Также можно переопределить оператор == для сравнения объектов
     static func == (lhs: ViewFilm, rhs: ViewFilm) -> Bool {
         return lhs.id == rhs.id
+    }
+}
+
+extension ViewFilm {
+    static func placeholder() -> ViewFilm {
+        return ViewFilm(kpRating: 5.0, imdbEating: 5.0, criticsRating: 5.0, name: "Заглушка для фильма", description: "", year: 2000, poster: UIImage(named: "movieTest"), countries: [], genres: [], movieLength: 129)
     }
 }

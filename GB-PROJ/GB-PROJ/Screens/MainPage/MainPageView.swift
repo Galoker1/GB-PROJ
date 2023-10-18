@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPageView: View {
-    @StateObject private var viewModel = MainPageViewModel()
+    @StateObject private var viewModel = FilmViewModel()
     @State private var isSecondViewActive = false
     @State private var isStyled = true
     @State var selectedMovie: ViewFilm? = nil
