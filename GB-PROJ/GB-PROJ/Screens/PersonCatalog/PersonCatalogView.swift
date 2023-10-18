@@ -91,4 +91,3 @@ struct PersonCatalogView_Previews: PreviewProvider {
             .environmentObject(TVShowViewModel())
         }
     }
-}

@@ -17,11 +17,11 @@ class CoreDataManager {
         newFilm.countries = film.countries
         newFilm.criticsRating = film.criticsRating
         newFilm.genres = film.genres
-        newFilm.titleId = Int64(film.id)
+        newFilm.titleId = Int64(film.id!)
         newFilm.imdbRating = film.imdbEating
         newFilm.kpRating = film.kpRating
         newFilm.movieLength = Int16(film.movieLength)
-        if let imageData = film.poster.pngData() {
+        if let imageData = film.poster?.pngData() {
             newFilm.poster = imageData
         }
         

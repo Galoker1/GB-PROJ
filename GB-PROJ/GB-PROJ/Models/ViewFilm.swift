@@ -17,7 +17,7 @@ struct ViewFilmViewModel {
 
 class ViewFilm: MediaItem,  Identifiable, Hashable, ObservableObject {
     
-    let id: Int
+    let id: Int?
     let kpRating: Double
     let imdbEating: Double
     let criticsRating: Double
@@ -27,7 +27,7 @@ class ViewFilm: MediaItem,  Identifiable, Hashable, ObservableObject {
     let genres: String
     let countries: String
     let movieLength: Int
-    let poster: UIImage
+    let poster: UIImage?
         
     init(id: Int?,
          kpRating: Double?,
@@ -66,6 +66,6 @@ class ViewFilm: MediaItem,  Identifiable, Hashable, ObservableObject {
 
 extension ViewFilm {
     static func placeholder() -> ViewFilm {
-        return ViewFilm(kpRating: 5.0, imdbEating: 5.0, criticsRating: 5.0, name: "Заглушка для фильма", description: "", year: 2000, poster: UIImage(named: "movieTest"), countries: [], genres: [], movieLength: 129)
+        return ViewFilm(id: 1, kpRating: 5.0, imdbEating: 5.0, criticsRating: 5.0, name: "Заглушка для фильма", description: "", year: 2000, poster: UIImage(named: "movieTest") ?? UIImage(), countries: [], genres: [], movieLength: 129)
     }
 }

@@ -22,12 +22,12 @@ struct WideSaveShareButtonsView: View {
             }
             .frame(width: 250, height: 60)
             .onAppear {
-                isButtonTap = CoreDataManager.shared.checkInStore(id: Int64(film.id))
+                isButtonTap = CoreDataManager.shared.checkInStore(id: Int64(film.id!))
             }
             Spacer().frame(width: 20)
             Button(action: {
                 if isButtonTap{
-                    CoreDataManager.shared.deleteById(id: Int64(film.id))
+                    CoreDataManager.shared.deleteById(id: Int64(film.id!))
                 }
                 else {
                     CoreDataManager.shared.createFilm(film: film)
